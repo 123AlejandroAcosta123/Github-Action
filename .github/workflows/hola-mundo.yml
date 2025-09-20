@@ -4,6 +4,8 @@ jobs:
   hola-mundo:
     runs-on: windows-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v6.0.0
       - name: correr-archivo
