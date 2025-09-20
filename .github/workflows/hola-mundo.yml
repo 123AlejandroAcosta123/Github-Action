@@ -1,0 +1,12 @@
+name: Hola-mundo
+on: [push]
+jobs:
+  hola-mundo:
+    runs-on: windows-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v6.0.0
+      - name: correr-archivo
+        run: python Hola-mundo.py
+      
+      
