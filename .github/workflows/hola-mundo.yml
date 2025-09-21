@@ -1,4 +1,5 @@
 name: Hola-mundo
+run-name: aprendiendo github action
 on: [push]
 jobs:
   hola-mundo:
