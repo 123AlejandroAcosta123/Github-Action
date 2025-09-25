@@ -5,23 +5,23 @@ on:
     inputs:
       nombre_completo:
         description: 'deje su nombre completo'
-        default: Alejandro
+        default: 'Alejandro'
         required: true
         type: string
   
       edad:
         description: 'deje su edad aqui'
         required: true
-        default: mayor de edad
+        default: 'mayor de edad'
         type: choice
         options:
-        - menor de edad
-        - mayor de edad
+        - 'menor de edad'
+        - 'mayor de edad'
 
       correo:
         description: 'deje su correo'
         required: true
-        default: alejandro@gmail.com
+        default: 'alejandro@gmail.com'
         type: string
   push:
     branches:
