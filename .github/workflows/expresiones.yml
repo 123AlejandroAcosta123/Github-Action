@@ -1,0 +1,56 @@
+name: expresiones
+run-name: dejando expresiones
+on: 
+  workflow_dispatch:
+    inputs:
+      nombre_completo:
+        description: 'deje su nombre completo'
+        default: 'Alejandro'
+        required: true
+        type: string
+  
+      edad:
+        description: 'deje su edad aqui'
+        required: true
+        default: 'mayor de edad'
+        type: choice
+        options:
+        - 'menor de edad'
+        - 'mayor de edad'
+
+      correo:
+        description: 'deje su correo'
+        required: true
+        default: 'alejandro@gmail.com'
+        type: string
+  push:
+    branches:
+     - aprendiendo-github-actions
+  schedule:
+    - cron: '30 ,22, * * *'
+jobs:
+  prueba_triggers:
+    if: ${{inputs.edad == 'mayor de edad'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: publicando nombre
+        run: echo "El nombre es ${{ inputs.nombre_completo }}"
+      - name: edad
+        run: echo "${{ inputs.nombre_completo }} es ${{ inputs.edad }}"
+      - name: correo
+        run: echo "su correo electronico es ${{ inputs.correo }}"
+  menor_de_edad:
+    if: ${{inputs.edad != 'mayor de edad'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: publicando nombre
+        run: echo "El nombre del menor de edad es ${{ inputs.nombre_completo }}"
+      - name: correo
+        run: echo "su correo electronico es ${{ inputs.correo }}"
+
+  ejecutar_py:
+    if: contains(github.ref, 'aprendiendo-github-actions')
+    runs-on: ubuntu-latest
+    steps:
+      - name: ejecucion holamunda
+        run: echo hola-mundo.py
