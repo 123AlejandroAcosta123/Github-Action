@@ -1,0 +1,37 @@
+name: triggers
+run-name: dejando triggers
+on: 
+  workflow_dispatch:
+    inputs:
+      nombre_completo:
+        description: 'deje su nombre completo'
+        required: true
+        type: string
+  
+      edad:
+        description: 'deje su edad aqui'
+        required: true
+        type: choice
+        options:
+        - menor de edad
+        - mayor de edad
+
+      correo:
+        description: 'deje su correo'
+        required: true
+        type: string
+  push:
+    branches:
+     - aprendiendo-github-actions
+  schedule:
+    - cron: '30 ,22, * * *'
+jobs:
+  prueba_triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: publicando nombre
+        run: echo "El nombre es ${{ github.event.inputs.nombre_completo }}"
+      
+  
+
+  
