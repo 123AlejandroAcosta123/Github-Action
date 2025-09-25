@@ -40,7 +40,7 @@ jobs:
       - name: correo
         run: echo "su correo electronico es ${{ inputs.correo }}"
   menor_de_edad:
-    if: ${{inputs.edad ! 'mayor de edad'}}
+    if: ${{inputs.edad != 'mayor de edad'}}
     runs-on: ubuntu-latest
     steps:
       - name: publicando nombre
