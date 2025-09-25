@@ -49,7 +49,7 @@ jobs:
         run: echo "su correo electronico es ${{ inputs.correo }}"
 
   ejecutar_py:
-    if: contains(github.ref == aprendiendo-github-actions)
+    if: contains(github.ref, 'aprendiendo-github-actions')
     runs-on: ubuntu-latest
     steps:
       - name: ejecucion holamunda
